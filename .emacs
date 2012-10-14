@@ -1,5 +1,9 @@
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
+
+;; Mustache
+(require 'mustache-mode)
+
 ;; Scheme
 
 ;;; The basic settings
@@ -121,6 +125,12 @@
 
 ;; No tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(add-hook 'scss-mode-hook
+      (lambda ()
+        (setq indent-tabs-mode t)
+        (setq tab-width 2)))
+
 
 ;; Flymake
 (require 'flymake)
@@ -192,7 +202,8 @@
   ;; If there is more than one, they won't work right.
  '(ido-case-fold t)
  '(ido-enable-flex-matching t)
- '(safe-local-variable-values (quote ((encoding . utf-8)))))
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(tab-width 2))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
